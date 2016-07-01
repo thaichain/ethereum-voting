@@ -1,6 +1,6 @@
 [English](#simple-and-secure-voting-system-with-bitcoin) ∙
 
-## Simple and secure voting system with Bitcoin
+## Simple and secure voting system with Ethereum
 
 A schema designed to utilize Bitcoin cryptocurrency for secure and simple electronic voting. In the heart of the schema lies the [Blockchain](https://en.wikipedia.org/wiki/Bitcoin#Block_chain), so all the processes of the system are open to public audition.
 
