@@ -1,12 +1,16 @@
-[English](#simple-and-secure-voting-system-with-bitcoin) ∙
-
 ## Simple and secure voting system with Ethereum
 
-A schema designed to utilize Bitcoin cryptocurrency for secure and simple electronic voting. In the heart of the schema lies the [Blockchain](https://en.wikipedia.org/wiki/Bitcoin#Block_chain), so all the processes of the system are open to public audition.
+This is an implementation of a simple and secure electronic voting system using Blockchain technology proposed [here](https://github.com/arikan/bitcoin-voting)
+
+It is implemented as a Smart Contract on Ethereum. Although the proposal was originally designed to be implemented on the Bitcoin Blockchain.
+
+The code follows the Condition-Orientated Programming (COP) methodology proposed by Gavin Wood. [More info](https://medium.com/@gavofyork/condition-orientated-programming-969f6ba0161a#.qoh9uadsb)
+
 
 #### Requirements:
 
-* All actors of the election should be able to have a Bitcoin account.
+* All actors of the election should be able to have an Ethereum account.
+* All actors of the election should be able to have a little amount of ether to pay for the gas needed to execute the Smart contract.
 * All actors of the election should be able to secure their voting computer.
 
 #### Actors:
@@ -17,45 +21,45 @@ A schema designed to utilize Bitcoin cryptocurrency for secure and simple electr
 
 #### Terminology:
 
-* Block Chain: Bitcoin public transaction list
-* 0.00000001 Bitcoin: the smallest unit of Bitcoin
-* BTC: Abbreviation for Bitcoin currency
+* Blockchain: Distributed database that stores the code of the Smart contract and the interaction between the users and the application in the form of transactions.
+* Smart contract: A piece of code that is excecuted on the Ethereum Blockchain.
+* Ether (ETH): The cryptocurrency used in Ethereum.
+* Gas: The amount of ether that you have to pay to have your transactions accepted in the Ethereum Blockchain.
 
 #### Schema:
 
 0. **Election Authority declaration:**
- - Election Authority publicly announces its Bitcoin address.
+ - Election Authority publish the code of the Smart Contract on the Ethereum Blockchain and publicly announces its address.
 
 1. **Voter registration:**
- - Voters show a valid ID and provide their Bitcoin address to Election Authority, who sends them 0.00000001 BTC in return.
- - All voter Bitcoin addresses are publicly listed in the Blockchain.
- - To carry out citizens' right to vote anonymously, the Election Authority keeps the IDs to prevent double registration but does not keep a record of association between the IDs and the provided Bitcoin addresses.
+ - Voters show a valid ID and provide their Ethereum address to Election Authority.
+ - All voter Ethereum addresses are publicly listed in the Blockchain by Election Authority using the function "register_voter".
+ - To carry out citizens' right to vote anonymously, the Election Authority keeps the IDs to prevent double registration but does not keep a record of association between the IDs and the provided Ethereum addresses.
 
 2. **Candidate registration:**
- - Candidates provide a valid ID and their Bitcoin address to Election Authority, who sends them 0.00000002 BTC in return.
- - All Candidate Bitcoin addresses are publicly listed in the Blockchain.
- - As opposed to Voter registration, Election Authority stores and publicly announces a record of association between each candidate ID and their provided Bitcoin address.
- - Candidates are obliged to announce their Bitcoin addresses.
+ - Candidates provide a valid ID to Election Authority.
+ - All Candidate unique names are publicly listed in the Blockchain using the function "register_candidate".
+ - As opposed to Voter registration, Election Authority stores and publicly announces a record of association between each candidate ID and their provided name.
 
 3. **Starting the election:**
- - Election starts when Election Authority sends 0.00000001 BTC to all the Voters' Bitcoin addresses publicly listed in the Blockchain.
+ - Election starts when Election Authority sets the duration of the election using the function "start_election".
 
 4. **Voting:**
- - Voters send 0.00000001 BTC to their preferred candidate's Bitcoin addresses publicly listed in the Blockchain.
+ - Voters vote for their preferred candidate's name publicly listed in the Blockchain using the function "vote".
 
-5. **Ending the election:**
- - Election ends when all voting transactions are processed for each candidate in the Blockchain.
- - If time limit is put in place, Election Authority must declare the election start and end date and time.
- - If this is a time limited election, any vote before the start datetime and after end datetime is considered invalid.
-
-6. **Election result:**
- - Election result is obtained by counting all valid voting transactions from the registered voting addresses to the registered candidate addresses in the Blockchain.
- - Any other transaction after the first 0.00000001 BTC transaction from the Voter to the Candidate is considered disqualified.
+5. **Election result:**
+ - Any vote before the start datetime and after end datetime will not be accepted by the Smart Contract.
+ - Any vote from an unauthorized Ethereum address will not be accepted by the Smart Contract.
+ - Only one vote from each authorized Ethereum address will be accepted by the Smart Contract.
+ - Election result can be audited in real time in the Blockchain.
+ - Any vote to an unregistered candidate will not be valid.
  - The whole process from the registrations to the voting and counting the results is open to audition by anyone.
 
 #### Contribution
 
-This basic schema can be implemented today with the existing Bitcoin infrastructure. One can develop applications and interfaces for better user experience of this system. Please send your comments and questions on issues and feel free to fork the repository and send pull requests.
+This basic schema can be implemented today with the existing infrastructure. One can develop applications and interfaces for better user experience of this system. Please send your comments and questions on issues and feel free to fork the repository and send pull requests.
+
+[Original proposal](https://github.com/arikan/bitcoin-voting) (with Bitcoin)
 
 #### License
 
