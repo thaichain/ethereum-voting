@@ -12,22 +12,22 @@ contract Election {
     
     modifier only_election_authority() {
         if (msg.sender != electionAuthority) throw;
-        _
+        _;
     }
     
     modifier only_registered_voters() {
         if (!voters[msg.sender]) throw;
-        _
+        _;
     }
     
     modifier vote_only_once() {
         if (hasVoted[msg.sender]) throw;
-        _
+        _;
     }
     
     modifier only_during_election_time() {
         if (electionEndTime == 0 || electionEndTime > block.timestamp) throw;
-        _
+        _;
     }
     
     function start_election(uint duration)
